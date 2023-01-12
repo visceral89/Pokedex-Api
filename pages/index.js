@@ -9,10 +9,14 @@ export default function Home({initPokemon}) {
   console.log(initPokemon);
 
   const [ pokemon, setPokemon ] = useState(initPokemon)
+  const [ offset , setoffset] = useState(0)
 
-  const fetchPokemon = async (url) => {
+  const fetchPokemon = async (url, next) => {
     const response = await fetch(url)
     const nextPokemon = await response.json()
+
+    setoffset(next ? offset + 20 : offset - 20)
+
     setPokemon(nextPokemon)
   }
 
@@ -21,17 +25,17 @@ export default function Home({initPokemon}) {
       <Layout title={"PokeApi"}>
         <div className='pokegrid'>
           {pokemon.results.map((monster, index) => (
-            <Pokemon key={index} pokemon={monster} index={index}/>
+            <Pokemon key={index} pokemon={monster} index={index + offset}/>
           ))}
         </div>
 
 
-            <div>
-              <button className="button" onClick={() => fetchPokemon(pokemon.previous)}>
+            <div className='button-wrapper'>
+              <button className="button" onClick={() => fetchPokemon(pokemon.previous, false)}>
                 Prev
               </button>
               
-              <button className="button" onClick={() => fetchPokemon(pokemon.next)}>
+              <button className="button" onClick={() => fetchPokemon(pokemon.next, true)}>
                 Next
               </button>
             </div>

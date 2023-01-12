@@ -29,9 +29,38 @@ a {
 .pokegrid{
   display: flex;
   flex-wrap: wrap;
-  gap: 1em;
+  gap: 5px;
+  background-color: rgba(0, 0, 0, .3);
 }
 
 Link:hover{
   color: var(--light-color);
 }
+
+.button{
+  width: 5em;
+  height: 2em;
+margin: 1em;
+  border-radius: 10px;
+  background-color: #3d7dca;
+  color: #ffffff;
+  border: none;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
+
+button:hover{
+  background-color: #ffcb05;
+}
+button:active{
+  background-color: #ffffff;
+}
+
+.button-wrapper{
+  display: flex;
+  margin: 1em;
+}
+
