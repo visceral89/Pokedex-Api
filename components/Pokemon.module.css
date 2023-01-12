@@ -1,21 +1,19 @@
 .card{
-    margin: 1em;
+    margin: 2em;
     border-radius: 1em;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.card :hover{
-
-   background-color: var(--light-color);
-   border-radius: 1em;
-}
-
 .number{
     position: relative;
+    font-weight: 900;
+    right: 20px;
 }
 
 .name{
-   text-transform: uppercase; 
+   text-transform: uppercase;
+   color: var(--accent-color);
+   font-weight: 900;
 }
