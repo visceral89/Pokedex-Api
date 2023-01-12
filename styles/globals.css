@@ -29,10 +29,9 @@ a {
 .pokegrid{
   display: flex;
   flex-wrap: wrap;
-  margin: 2em;
+  gap: 1em;
 }
 
-.pokemon :hover {
-   background-color: var(--light-color);
-   border-radius: 1em;
+Link:hover{
+  color: var(--light-color);
 }
