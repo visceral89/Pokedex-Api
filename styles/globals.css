@@ -31,3 +31,8 @@ a {
   flex-wrap: wrap;
   margin: 2em;
 }
+
+.pokegrid :hover {
+   background-color: var(--light-color);
+   border-radius: 1em;
+}

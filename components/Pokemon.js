@@ -9,6 +9,7 @@ const Pokemon = ({pokemon,index}) => {
   return (
 
     <div className={styles.card}>
+      <span className={styles.number}>#{pokeIndex}</span>
         <Image
            src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokeIndex}.png`} 
            width={150}
@@ -17,8 +18,8 @@ const Pokemon = ({pokemon,index}) => {
            placeholder='blur'
            blurDataURL='/public/blur.jpg'
         />
-        <span>#{pokeIndex}</span>
-        {pokemon.name}
+        
+        <p className={styles.name}>{pokemon.name}</p>
     </div>
 
   )
