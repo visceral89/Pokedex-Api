@@ -13,6 +13,9 @@ const Pokemon = ({pokemon,index}) => {
            src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokeIndex}.png`} 
            width={150}
            height={150}
+           alt={pokemon.name}
+           placeholder='blur'
+           blurDataURL='/public/blur.jpg'
         />
         <span>#{pokeIndex}</span>
         {pokemon.name}
