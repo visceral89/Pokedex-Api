@@ -32,7 +32,7 @@ a {
   margin: 2em;
 }
 
-.pokegrid :hover {
+.pokemon :hover {
    background-color: var(--light-color);
    border-radius: 1em;
 }
