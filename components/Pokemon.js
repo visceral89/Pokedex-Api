@@ -6,6 +6,7 @@ import Link from 'next/link'
 const Pokemon = ({pokemon,index}) => {
 
     const pokeIndex = ('000' + (index + 1)).slice(-3)
+    console.log(pokemon)
 
   return (
     <Link href={`/pokemon/${pokemon.name}`}>
