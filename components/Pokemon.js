@@ -12,7 +12,7 @@ const Pokemon = ({pokemon,index}) => {
       <div className={styles.card}>
         <span className={styles.number}>#{pokeIndex}</span>
           <Image
-            src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokeIndex}.png`} 
+            src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokeIndex}.png`}
             width={150}
             height={150}
             alt={pokemon.name}

@@ -6,8 +6,6 @@ import Pokemon from '../components/Pokemon';
 
 export default function Home({initPokemon}) {
 
-  console.log(initPokemon);
-
   const [ pokemon, setPokemon ] = useState(initPokemon)
   const [ offset , setoffset] = useState(0)
 
