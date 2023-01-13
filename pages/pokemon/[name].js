@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from '../../components/Layout'
 import Image from 'next/image';
+import styles from '../pokemon/pokemon.module.css'
 
 const Pokemon = ({pokemon}) => {
 
@@ -8,6 +9,24 @@ const Pokemon = ({pokemon}) => {
     const pokeName = pokemon.name[0].toUpperCase() + pokemon.name.slice(1)
 
     console.log(pokemon)
+
+    const renderTypes = () => (
+      pokemon.types.map(type =>(
+        <li key={type.slot} className={styles.type}>
+          {type.type.name}
+        </li>
+      ))
+    )
+
+    const renderStats = () => (
+      pokemon.stats.map((stat, index) =>(
+        <div key={index} className={styles.stats-wrapper}>
+          <div style={{width: `${stat.base_stat}%`}}>
+            {stat.stat.name}: {stat.base_stat}
+          </div>
+        </div>
+      ))
+    )
 
   return (
 
