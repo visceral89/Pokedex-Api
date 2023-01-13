@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Layout from '../components/Layout'
 import {useState} from "react";
 import Pokemon from '../components/Pokemon';
+import { Suspense } from 'react';
 
 export default function Home({initPokemon}) {
 
@@ -22,9 +23,11 @@ export default function Home({initPokemon}) {
 
       <Layout title={"PokeApi"}>
         <div className='pokegrid'>
+          <Suspense fallback={<div>Loading...</div>}>
           {pokemon.results.map((monster, index) => (
             <Pokemon key={index} pokemon={monster} index={index + offset}/>
           ))}
+          </Suspense>
         </div>
 
 
