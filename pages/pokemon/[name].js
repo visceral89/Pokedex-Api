@@ -20,7 +20,7 @@ const Pokemon = ({pokemon}) => {
 
     const renderStats = () => (
       pokemon.stats.map((stat, index) =>(
-        <div key={index} className={styles.stats-wrapper}>
+        <div key={index} /*className={styles.stats-wrapper}*/>
           <div style={{width: `${stat.base_stat}%`}}>
             {stat.stat.name}: {stat.base_stat}
           </div>
@@ -36,6 +36,18 @@ const Pokemon = ({pokemon}) => {
         width={250}
         height={250}/>
       </div>
+
+      <div>
+        <ul className={styles.list}>
+          {renderTypes()}
+        </ul>
+
+        <div>
+          {renderStats()}
+        </div>
+
+      </div>
+
     </Layout>
 
   );
