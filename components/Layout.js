@@ -17,17 +17,15 @@ const Layout = ({children,title}) => {
         <Link href="/">
             <h1>{title}</h1>
         </Link>
+
+        <Link href="/">
+            <Image src="/pokemon-icon.webp" alt="Pokemon Logo" width="100" height="100" />
+        </Link>
     </header>
 
     <main className={styles.main}>
         {children}
     </main>
-
-    <footer className={styles.footer}>
-        <Link href="/">
-            <Image src="/pokemon-icon.webp" alt="Pokemon Logo" width="100" height="100" />
-        </Link>
-    </footer>
 </div>
   )
 }
