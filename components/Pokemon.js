@@ -29,3 +29,14 @@ const Pokemon = ({pokemon,index}) => {
 }
 
 export default Pokemon
+
+export async function getServerSideProps(context) {
+
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${context}/`)
+  const pokemon = await response.json()
+
+
+  return {
+      props: { pokemon }
+  }
+}
