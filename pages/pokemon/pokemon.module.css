@@ -1,8 +1,0 @@
-.list{
-   display: flex;
-   text-transform: uppercase;
-   font-weight: bold;
-   list-style-type: none;
-   gap: 1em;
-   padding: 1em;
-}
