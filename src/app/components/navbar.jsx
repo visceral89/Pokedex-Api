@@ -13,8 +13,15 @@ export const Navbar = () => {
 				/>
 				<h1>Pokemon</h1>
 			</div>
-			<div className={styles.searchbarContainer}>
-				<p>Search</p>
+			<div className={styles.searchBarContainer}>
+				<div className={styles.searchBar}>
+					<input
+						type="text"
+						placeholder="Search"
+						pattern="^[a-zA-Z\s]+$"
+						title="Search"
+					/>
+				</div>
 			</div>
 		</nav>
 	);
