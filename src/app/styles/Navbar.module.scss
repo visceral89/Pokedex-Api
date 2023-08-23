@@ -1,0 +1,11 @@
+@import "variables";
+
+nav {
+	width: 100vw;
+	height: $mg-xl;
+	display: flex;
+	padding: 0 $mg-xl;
+	align-items: center;
+	flex-shrink: 0;
+	align-self: stretch;
+}

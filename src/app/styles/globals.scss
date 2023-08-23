@@ -3,6 +3,7 @@
 	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
+	font-size: $text-size-regular;
 }
 
 html,
@@ -15,4 +16,9 @@ body {
 
 a {
 	text-decoration: none;
+}
+
+h1,
+h2 {
+	font-size: $text-size-large;
 }
