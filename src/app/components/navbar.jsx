@@ -4,9 +4,11 @@ export const Navbar = () => {
 	return (
 		<nav className={styles.Navbar}>
 			<div>
-				<p>test</p>
+				<h1>Pokemon</h1>
 			</div>
-			<div></div>
+			<div>
+				<p>Searc2</p>
+			</div>
 		</nav>
 	);
 };
