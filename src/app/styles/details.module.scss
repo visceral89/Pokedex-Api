@@ -1,0 +1,38 @@
+@import "../styles/variables";
+
+.detailsSection {
+	display: flex;
+	padding: 1rem $padding;
+	align-items: flex-start;
+	gap: 2rem;
+	align-self: stretch;
+
+	background: $bg-color-white;
+	box-shadow: 0px 7px 4px 0px rgba(0, 0, 0, 0.3);
+}
+
+.infoContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex: 1 0 0;
+	align-self: stretch;
+}
+.imageContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex: 1 0 0;
+	align-self: stretch;
+	padding: 10px;
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 2rem;
+}

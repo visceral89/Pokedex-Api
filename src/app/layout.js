@@ -11,8 +11,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 	return (
-		<html lang="en">
-			<body className={pokeFont.className}>{children}</body>
+		<html lang='en'>
+			<body className={pokeFont.className}>
+				<Navbar />
+				{children}
+			</body>
 		</html>
 	);
 }
