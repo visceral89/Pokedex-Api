@@ -1,0 +1,23 @@
+.nav {
+	display: flex;
+	height: 100px;
+	padding: 0 100px;
+
+	align-items: center;
+	flex-shrink: 0;
+	align-self: stretch;
+}
+
+.logoContainer {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	font-size: 2rem;
+	font-weight: 400;
+}
+
+.searchContainer {
+	display: flex;
+	padding: 10px;
+    
+}

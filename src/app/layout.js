@@ -1,5 +1,6 @@
 import "@/app/styles/globals.scss";
 import localFont from "next/font/local";
+import Navbar from "./components/Navbar";
 
 const pokeFont = localFont({ src: "pokemon-font.ttf" });
 
