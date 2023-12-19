@@ -19,7 +19,14 @@ export default function Details({ pokemon }) {
 					</div>
 				</div>
 			</div>
-			<div className={styles.imageContainer}>{/* Image goes here */}</div>
+			<div className={styles.imageContainer}>
+				<Image
+					src={"/placeholder_large.png"}
+					width={513}
+					height={403}
+					alt='Pokemon Detailed Picture'
+				/>
+			</div>
 		</div>
 	);
 }
