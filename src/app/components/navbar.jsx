@@ -6,8 +6,8 @@ export const Navbar = () => {
 		<nav className={styles.Navbar}>
 			<div className={styles.Logo}>
 				<Image
-					src="/pokemon-icon.png"
-					alt="pokemon icon"
+					src='/pokemon-icon.png'
+					alt='pokemon icon'
 					width={67}
 					height={68}
 				/>
@@ -16,10 +16,10 @@ export const Navbar = () => {
 			<div className={styles.searchBarContainer}>
 				<div className={styles.searchBar}>
 					<input
-						type="text"
-						placeholder="Search"
-						pattern="^[a-zA-Z\s]+$"
-						title="Search"
+						type='text'
+						placeholder='Search'
+						pattern='^[a-zA-Z\s]+$'
+						title='Search'
 					/>
 				</div>
 			</div>
