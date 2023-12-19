@@ -10,10 +10,7 @@ export default function Navbar() {
 				Pokedex
 			</div>
 			<div className={styles.searchContainer}>
-				<div className={styles.searchBar}>
-					<searchIcon />
-					SEARCH
-				</div>
+				<div className={styles.searchBar}>SEARCH</div>
 			</div>
 		</nav>
 	);
