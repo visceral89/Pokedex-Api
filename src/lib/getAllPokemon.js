@@ -15,7 +15,7 @@ const query = gql`
 
 export default async function getAllPokemon() {
 	const { data } = await getClient().query({ query });
-	const pokemons = data.gen1_species;
+	const pokemons = data.gen1_species.json();
 
-	return await pokemons.json();
+	return await pokemons;
 }
