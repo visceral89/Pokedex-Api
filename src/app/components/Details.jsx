@@ -1,5 +1,8 @@
+"use client";
+
 import styles from "../styles/components/details.module.scss";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Details({ pokemon }) {
 	return (
@@ -24,7 +27,7 @@ export default function Details({ pokemon }) {
 					src={"/placeholder_large.png"}
 					width={513}
 					height={403}
-					alt='Pokemon Detailed Picture'
+					alt='a thumbnail'
 				/>
 			</div>
 		</div>
