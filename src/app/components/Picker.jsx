@@ -16,13 +16,6 @@ export default function Picker({ allPokemon }) {
 		startIndex + ITEMS_PER_PAGE
 	);
 
-	const goToNextPage = () => {
-		setCurrentPage((prev) => (prev < totalPages ? prev + 1 : prev));
-	};
-
-	const goToPreviousPage = () => {
-		setCurrentPage((prev) => (prev > 1 ? prev - 1 : prev));
-	};
 	return (
 		<div className={styles.picker}>
 			<div className={styles.gridContainer}>
