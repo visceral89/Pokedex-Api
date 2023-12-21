@@ -16,7 +16,7 @@ export default function Details() {
 		<div className={styles.detailsSection}>
 			<div className={styles.infoContainer}>
 				<div className={styles.info}>
-					<h1>NAME</h1>
+					<h1>{selectedPokemon}</h1>
 					<p>006</p>
 					<div className={styles.infoType}></div>
 					<div className={styles.infoStats}>
