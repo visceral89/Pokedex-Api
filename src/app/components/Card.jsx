@@ -3,6 +3,7 @@
 import styles from "../styles/components/picker.module.scss";
 import Image from "next/image";
 import { usePokemonContext } from "../context/Pokemoncontext";
+import { useEffect } from "react";
 
 /*  <img src="https://img.pokemondb.net/sprites/ruby-sapphire/normal/bulbasaur.png" alt="Bulbasaur"> */
 
@@ -15,6 +16,8 @@ export default function Card({ name }) {
 	const handleSelect = () => {
 		setSelectedPokemon(name);
 	};
+
+	
 
 	const spriteUrl = `https://img.pokemondb.net/sprites/ruby-sapphire/normal/${name}.png`;
 

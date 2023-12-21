@@ -2,9 +2,16 @@
 
 import styles from "../styles/components/details.module.scss";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { usePokemonContext } from "../context/Pokemoncontext";
 
-export default function Details({ pokemon }) {
+export default function Details() {
+	const { selectedPokemon } = usePokemonContext();
+
+	useEffect(() => {
+		console.log("Details component selectedPokemon: ", selectedPokemon);
+	}, [selectedPokemon]);
+
 	return (
 		<div className={styles.detailsSection}>
 			<div className={styles.infoContainer}>
