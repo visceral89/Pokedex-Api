@@ -28,6 +28,18 @@
 	border: 2px solid $bg-color-gray;
 	background-color: rgba(249, 249, 249, 0.5);
 }
+.cardSelected {
+	display: flex;
+	width: 10rem;
+	height: 10rem;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	border-radius: 1.25rem;
+	border: 8px solid $color-selected;
+	background-color: rgba(249, 249, 249, 0.5);
+}
 
 .pagenation {
 	display: flex;

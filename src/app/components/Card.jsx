@@ -7,7 +7,10 @@ import { usePokemonContext } from "../context/Pokemoncontext";
 /*  <img src="https://img.pokemondb.net/sprites/ruby-sapphire/normal/bulbasaur.png" alt="Bulbasaur"> */
 
 export default function Card({ name }) {
-	const { setSelectedPokemon } = usePokemonContext();
+	const { selectedPokemon, setSelectedPokemon } = usePokemonContext();
+
+	const isSelected = name === selectedPokemon;
+	const cardClass = isSelected ? styles.cardSelected : styles.card;
 
 	const handleSelect = () => {
 		setSelectedPokemon(name);
@@ -16,7 +19,7 @@ export default function Card({ name }) {
 	const spriteUrl = `https://img.pokemondb.net/sprites/ruby-sapphire/normal/${name}.png`;
 
 	return (
-		<div className={styles.card} onClick={handleSelect}>
+		<div className={cardClass} onClick={handleSelect}>
 			<Image
 				src={spriteUrl}
 				width={113}
