@@ -3,7 +3,7 @@ import Image from "next/image";
 
 /*  <img src="https://img.pokemondb.net/sprites/ruby-sapphire/normal/bulbasaur.png" alt="Bulbasaur"> */
 
-export default function Card({ name, image }) {
+export default function Card({ name }) {
 	const spriteUrl = `https://img.pokemondb.net/sprites/ruby-sapphire/normal/${name}.png`;
 
 	return (

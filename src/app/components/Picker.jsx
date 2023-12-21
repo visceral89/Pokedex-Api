@@ -1,5 +1,5 @@
 "use client";
-
+import { usePokemonContext } from "../context/Pokemoncontext";
 import styles from "../styles/components/picker.module.scss";
 import Card from "./Card";
 import { useState } from "react";
@@ -11,20 +11,18 @@ export default function Picker({ allPokemon }) {
 	const totalPages = Math.ceil(allPokemon.length / ITEMS_PER_PAGE);
 
 	const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-	const selectedPokemon = allPokemon.slice(
+	const filteredPokemon = allPokemon.slice(
 		startIndex,
 		startIndex + ITEMS_PER_PAGE
 	);
 
+	const { setSelectedPokemon } = usePokemonContext;
+
 	return (
 		<div className={styles.picker}>
 			<div className={styles.gridContainer}>
-				{selectedPokemon.map((pokemon) => (
-					<Card
-						name={pokemon.name}
-						key={pokemon.name + "key"}
-						image={pokemon.image}
-					/>
+				{filteredPokemon.map((pokemon) => (
+					<Card name={pokemon.name} key={pokemon.name + "key"} />
 				))}
 			</div>
 			<div className={styles.pagenation}>
