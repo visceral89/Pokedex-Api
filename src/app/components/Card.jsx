@@ -7,7 +7,7 @@ import { usePokemonContext } from "../context/Pokemoncontext";
 /*  <img src="https://img.pokemondb.net/sprites/ruby-sapphire/normal/bulbasaur.png" alt="Bulbasaur"> */
 
 export default function Card({ name }) {
-	const { setSelectedPokemon } = usePokemonContext;
+	const { setSelectedPokemon } = usePokemonContext();
 
 	const handleSelect = () => {
 		setSelectedPokemon(name);
