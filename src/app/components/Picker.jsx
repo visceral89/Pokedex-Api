@@ -1,5 +1,4 @@
 "use client";
-import { usePokemonContext } from "../context/Pokemoncontext";
 import styles from "../styles/components/picker.module.scss";
 import Card from "./Card";
 import { useState } from "react";
@@ -15,8 +14,6 @@ export default function Picker({ allPokemon }) {
 		startIndex,
 		startIndex + ITEMS_PER_PAGE
 	);
-
-	const { setSelectedPokemon } = usePokemonContext;
 
 	return (
 		<div className={styles.picker}>
