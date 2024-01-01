@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePokemonContext } from "../context/Pokemoncontext";
 
-export default async function Details() {
+export default function Details() {
 	const { selectedPokemon } = usePokemonContext();
 
 	return (
