@@ -25,10 +25,15 @@ export default function Details() {
 		if (!selectedPokemon) return;
 		fetch(`https://pokeapi.co/api/v2/pokemon/${selectedPokemon}`)
 			.then((res) => res.json())
-			.then((pokemon) => {
-				setPokemon(pokemon);
+			.then((data) => {
+				setPokemon(data);
+				setIsLoading(false);
+			})
+			.catch((error) => {
+				console.error("Error fetching Selected Pokemon: ", error);
 				setIsLoading(false);
 			});
+
 		if (pokemon) {
 			console.log(pokemon);
 			const hpStat = pokemon.stats.find((stat) => stat.stat.name === "hp");
