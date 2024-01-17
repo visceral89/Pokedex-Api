@@ -67,7 +67,7 @@ export default function Details() {
 			setStatSpDefense(spDefStat ? spDefStat.base_stat : "???");
 			const typesStat = pokemon.types;
 			setType(typesStat);
-			const sprite = pokemon.sprites.other.official - artwork.front_default;
+			const sprite = pokemon.sprites.other["official-artwork"].front_default;
 			setSprite(sprite);
 		}
 	}, [pokemon]);
