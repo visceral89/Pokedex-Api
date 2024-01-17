@@ -10,6 +10,7 @@ import Type from "./Type";
 
 export default function Details() {
 	const [pokemon, setPokemon] = useState(null);
+	const [sprite, setSprite] = useState("/placeholder_large.png");
 	const [statHP, setStatHP] = useState("???");
 	const [statAttack, setStatAttack] = useState("???");
 	const [statDefense, setStatDefense] = useState("???");
@@ -66,6 +67,8 @@ export default function Details() {
 			setStatSpDefense(spDefStat ? spDefStat.base_stat : "???");
 			const typesStat = pokemon.types;
 			setType(typesStat);
+			const sprite = pokemon.sprites.other.official - artwork.front_default;
+			setSprite(sprite);
 		}
 	}, [pokemon]);
 
@@ -84,6 +87,7 @@ export default function Details() {
 			</div>
 		</div>
 	) : pokemon ? (
+		// Everything Loaded
 		<div className={styles.detailsSection}>
 			<div className={styles.infoContainer}>
 				<div className={styles.info}>
@@ -102,12 +106,7 @@ export default function Details() {
 				</div>
 			</div>
 			<div className={styles.imageContainer}>
-				<Image
-					src={"/placeholder_large.png"}
-					width={513}
-					height={403}
-					alt='a thumbnail'
-				/>
+				<Image src={sprite} width={513} height={403} alt='a thumbnail' />
 			</div>
 		</div>
 	) : (
