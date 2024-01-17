@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { usePokemonContext } from "../context/Pokemoncontext";
 import { getAllPokemon } from "@/lib/pokemonAPI";
 import useSWR from "swr";
+import Type from "./Type";
 
 // https://pokeapi.co/api/v2/pokemon/{name}
 
@@ -17,6 +18,7 @@ export default function Details() {
 	const [statSpAttack, setStatSpAttack] = useState("???");
 	const [statSpDefense, setStatSpDefense] = useState("???");
 	const [statSpeed, setStatSpeed] = useState("???");
+	const [type, setType] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 
 	const { selectedPokemon } = usePokemonContext();
@@ -64,50 +66,10 @@ export default function Details() {
 				(stat) => stat.stat.name === "special-defense"
 			);
 			setStatSpDefense(spDefStat ? spDefStat.base_stat : "???");
+			const typesStat = pokemon.types;
+			setType(typesStat);
 		}
 	}, [pokemon]);
-
-	/* useEffect(() => { 
-		if (!selectedPokemon) return;
-		fetch(`https://pokeapi.co/api/v2/pokemon/${selectedPokemon}`)
-			.then((res) => res.json())
-			.then((data) => {
-				setPokemon(data);
-				setIsLoading(false);
-
-				console.log(pokemon);
-				const hpStat = pokemon.stats.find((stat) => stat.stat.name === "hp");
-				setStatHP(hpStat ? hpStat.base_stat : "???");
-
-				const atkStat = pokemon.stats.find(
-					(stat) => stat.stat.name === "attack"
-				);
-				setStatAttack(atkStat ? atkStat.base_stat : "???");
-
-				const defStat = pokemon.stats.find(
-					(stat) => stat.stat.name === "defense"
-				);
-				setStatDefense(defStat ? defStat.base_stat : "???");
-
-				const spdStat = pokemon.stats.find(
-					(stat) => stat.stat.name === "speed"
-				);
-				setStatSpeed(spdStat ? spdStat.base_stat : "???");
-
-				const spAtkStat = pokemon.stats.find(
-					(stat) => stat.stat.name === "special-attack"
-				);
-				setStatSpAttack(spAtkStat ? spAtkStat.base_stat : "???");
-				const spDefStat = pokemon.stats.find(
-					(stat) => stat.stat.name === "special-defense"
-				);
-				setStatSpDefense(spDefStat ? spDefStat.base_stat : "???");
-			})
-			.catch((error) => {
-				console.error("Error fetching Selected Pokemon: ", error);
-				setIsLoading(false);
-			});
-	}, [selectedPokemon]); */
 
 	return isLoading ? (
 		<div className={styles.detailsSection}>
@@ -129,6 +91,7 @@ export default function Details() {
 				<div className={styles.info}>
 					<h1>{pokemon.name}</h1>
 					<p>#{pokemon.id}</p>
+					<Type types={type} />
 					<div className={styles.infoType}></div>
 					<div className={styles.infoStats}>
 						<div className={styles.stats}>HEALTH: {statHP}</div>
