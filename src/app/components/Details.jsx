@@ -2,11 +2,11 @@
 
 import styles from "../styles/components/details.module.scss";
 import Image from "next/image";
-import { useState, useEffect } from "react";
 import { usePokemonContext } from "../context/Pokemoncontext";
 
 export default function Details() {
 	const { selectedPokemon } = usePokemonContext();
+
 
 	return (
 		<div className={styles.detailsSection}>
