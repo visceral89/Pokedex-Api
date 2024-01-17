@@ -5,11 +5,18 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePokemonContext } from "../context/Pokemoncontext";
 import { getAllPokemon } from "@/lib/pokemonAPI";
+import useSWR from "swr";
 
 // https://pokeapi.co/api/v2/pokemon/{name}
 
 export default function Details() {
 	const [pokemon, setPokemon] = useState(null);
+	const [statHP, setStatHP] = useState("???");
+	const [statAttack, setStatAttack] = useState("???");
+	const [statDefense, setStatDefense] = useState("???");
+	const [statSpAttack, setStatSpAttack] = useState("???");
+	const [statSpDefense, setStatSpDefense] = useState("???");
+	const [statSpeed, setStatSpeed] = useState("???");
 	const [isLoading, setIsLoading] = useState(true);
 
 	const { selectedPokemon } = usePokemonContext();
@@ -22,13 +29,32 @@ export default function Details() {
 				setPokemon(pokemon);
 				setIsLoading(false);
 			});
+		if (pokemon) {
+			console.log(pokemon);
+			const hpStat = pokemon.stats.find((stat) => stat.stat.name === "hp");
+			setStatHP(hpStat ? hpStat.base_stat : "???");
 
-		console.log(pokemon);
+			const atkStat = pokemon.stats.find((stat) => stat.stat.name === "attack");
+			setStatAttack(atkStat ? atkStat.base_stat : "???");
+
+			const defStat = pokemon.stats.find(
+				(stat) => stat.stat.name === "defense"
+			);
+			setStatDefense(defStat ? defStat.base_stat : "???");
+
+			const spdStat = pokemon.stats.find((stat) => stat.stat.name === "speed");
+			setStatSpeed(spdStat ? spdStat.base_stat : "???");
+
+			const spAtkStat = pokemon.stats.find(
+				(stat) => stat.stat.name === "special-attack"
+			);
+			setStatSpAttack(spAtkStat ? spAtkStat.base_stat : "???");
+			const spDefStat = pokemon.stats.find(
+				(stat) => stat.stat.name === "special-defense"
+			);
+			setStatSpDefense(spDefStat ? spDefStat.base_stat : "???");
+		}
 	}, [selectedPokemon]);
-
-	//const pokemonHP = pokemon.types[0].type.name;
-	//const pokemonName = pokemon.name;
-	//const pokemonId = pokemon.id;
 
 	return isLoading ? (
 		<div className={styles.detailsSection}>
@@ -52,12 +78,12 @@ export default function Details() {
 					<p>#{pokemon.id}</p>
 					<div className={styles.infoType}></div>
 					<div className={styles.infoStats}>
-						<div className={styles.stats}>STATS: 100</div>
-						<div className={styles.stats}>STATS: 100</div>
-						<div className={styles.stats}>STATS: 100</div>
-						<div className={styles.stats}>STATS: 100</div>
-						<div className={styles.stats}>STATS: 100</div>
-						<div className={styles.stats}>STATS: 100</div>
+						<div className={styles.stats}>HEALTH: {statHP}</div>
+						<div className={styles.stats}>ATTACK: {statAttack}</div>
+						<div className={styles.stats}>DEFENCE: {statDefense}</div>
+						<div className={styles.stats}>SPEED: {statSpeed}</div>
+						<div className={styles.stats}>SP ATK: {statSpAttack}</div>
+						<div className={styles.stats}>SP DEF: {statSpDefense}</div>
 					</div>
 				</div>
 			</div>
