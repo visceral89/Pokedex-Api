@@ -28,37 +28,39 @@ export default function Details() {
 			.then((data) => {
 				setPokemon(data);
 				setIsLoading(false);
+
+				console.log(pokemon);
+				const hpStat = pokemon.stats.find((stat) => stat.stat.name === "hp");
+				setStatHP(hpStat ? hpStat.base_stat : "???");
+
+				const atkStat = pokemon.stats.find(
+					(stat) => stat.stat.name === "attack"
+				);
+				setStatAttack(atkStat ? atkStat.base_stat : "???");
+
+				const defStat = pokemon.stats.find(
+					(stat) => stat.stat.name === "defense"
+				);
+				setStatDefense(defStat ? defStat.base_stat : "???");
+
+				const spdStat = pokemon.stats.find(
+					(stat) => stat.stat.name === "speed"
+				);
+				setStatSpeed(spdStat ? spdStat.base_stat : "???");
+
+				const spAtkStat = pokemon.stats.find(
+					(stat) => stat.stat.name === "special-attack"
+				);
+				setStatSpAttack(spAtkStat ? spAtkStat.base_stat : "???");
+				const spDefStat = pokemon.stats.find(
+					(stat) => stat.stat.name === "special-defense"
+				);
+				setStatSpDefense(spDefStat ? spDefStat.base_stat : "???");
 			})
 			.catch((error) => {
 				console.error("Error fetching Selected Pokemon: ", error);
 				setIsLoading(false);
 			});
-
-		if (pokemon) {
-			console.log(pokemon);
-			const hpStat = pokemon.stats.find((stat) => stat.stat.name === "hp");
-			setStatHP(hpStat ? hpStat.base_stat : "???");
-
-			const atkStat = pokemon.stats.find((stat) => stat.stat.name === "attack");
-			setStatAttack(atkStat ? atkStat.base_stat : "???");
-
-			const defStat = pokemon.stats.find(
-				(stat) => stat.stat.name === "defense"
-			);
-			setStatDefense(defStat ? defStat.base_stat : "???");
-
-			const spdStat = pokemon.stats.find((stat) => stat.stat.name === "speed");
-			setStatSpeed(spdStat ? spdStat.base_stat : "???");
-
-			const spAtkStat = pokemon.stats.find(
-				(stat) => stat.stat.name === "special-attack"
-			);
-			setStatSpAttack(spAtkStat ? spAtkStat.base_stat : "???");
-			const spDefStat = pokemon.stats.find(
-				(stat) => stat.stat.name === "special-defense"
-			);
-			setStatSpDefense(spDefStat ? spDefStat.base_stat : "???");
-		}
 	}, [selectedPokemon]);
 
 	return isLoading ? (
