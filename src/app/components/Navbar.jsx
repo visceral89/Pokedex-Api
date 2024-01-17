@@ -1,6 +1,5 @@
 import styles from "../styles/components/navbar.module.scss";
 import Image from "next/image";
-import searchIcon from "@/lib/search-icon";
 
 export default function Navbar() {
 	return (

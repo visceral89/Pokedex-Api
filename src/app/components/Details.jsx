@@ -4,8 +4,6 @@ import styles from "../styles/components/details.module.scss";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePokemonContext } from "../context/Pokemoncontext";
-import { getAllPokemon } from "@/lib/pokemonAPI";
-import useSWR from "swr";
 import Type from "./Type";
 
 // https://pokeapi.co/api/v2/pokemon/{name}
