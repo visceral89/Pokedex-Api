@@ -22,6 +22,52 @@ export default function Details() {
 	const { selectedPokemon } = usePokemonContext();
 
 	useEffect(() => {
+		if (!selectedPokemon) {
+			setPokemon(null);
+			return;
+		}
+		setIsLoading(true);
+		fetch(`https://pokeapi.co/api/v2/pokemon/${selectedPokemon}`)
+			.then((res) => res.json())
+			.then((data) => {
+				setPokemon(data);
+				setIsLoading(false);
+			})
+			.catch((error) => {
+				console.error("Error fetching Selected Pokemon: ", error);
+				setIsLoading(false);
+			});
+	}, [selectedPokemon]);
+
+	useEffect(() => {
+		if (pokemon) {
+			console.log(pokemon);
+			const hpStat = pokemon.stats.find((stat) => stat.stat.name === "hp");
+			setStatHP(hpStat ? hpStat.base_stat : "???");
+
+			const atkStat = pokemon.stats.find((stat) => stat.stat.name === "attack");
+			setStatAttack(atkStat ? atkStat.base_stat : "???");
+
+			const defStat = pokemon.stats.find(
+				(stat) => stat.stat.name === "defense"
+			);
+			setStatDefense(defStat ? defStat.base_stat : "???");
+
+			const spdStat = pokemon.stats.find((stat) => stat.stat.name === "speed");
+			setStatSpeed(spdStat ? spdStat.base_stat : "???");
+
+			const spAtkStat = pokemon.stats.find(
+				(stat) => stat.stat.name === "special-attack"
+			);
+			setStatSpAttack(spAtkStat ? spAtkStat.base_stat : "???");
+			const spDefStat = pokemon.stats.find(
+				(stat) => stat.stat.name === "special-defense"
+			);
+			setStatSpDefense(spDefStat ? spDefStat.base_stat : "???");
+		}
+	}, [pokemon]);
+
+	/* useEffect(() => { 
 		if (!selectedPokemon) return;
 		fetch(`https://pokeapi.co/api/v2/pokemon/${selectedPokemon}`)
 			.then((res) => res.json())
@@ -61,7 +107,7 @@ export default function Details() {
 				console.error("Error fetching Selected Pokemon: ", error);
 				setIsLoading(false);
 			});
-	}, [selectedPokemon]);
+	}, [selectedPokemon]); */
 
 	return isLoading ? (
 		<div className={styles.detailsSection}>
